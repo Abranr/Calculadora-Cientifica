@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora Científica y de Derivadas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+</head>
+<body>
+    
+    <header>
+        <h1>Calculadora Científica y de Derivadas</h1>
+    </header>
+    <main>
+        <!-- Calculadora Científica -->
+        <div class="container">
+            <h2>Calculadora Científica</h2>
+          
+            <table>
+                <tr>
+                    <th colspan="5">
+                        <input id="displayBox" type="text" readonly>
+                    </th>
+                </tr>
+                <tr>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.clearMemory()">MC</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.readMemory()">MR</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.addToMemory()">M+</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.subtractFromMemory()">M-</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.saveToMemory()">MS</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.square()">x^2</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.nthTenPower()">10^x</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('sin(')">sin</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('cos(')">cos</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('tan(')">tan</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.cube()">x^3</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.inverseNumber()">x^-1</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('sqrt(')">sqrt</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('log(')">log</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('ln(')">ln</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" onclick="calculadora.writeMathFunction('e')">e</button></td>
+                    <td><button class="button redbutton" type="button" onclick="calculadora.clearDisplay()">CE</button></td>
+                    <td><button class="button redbutton" type="button" onclick="calculadora.clearDisplay()">C</button></td>
+                    <td><button class="button redbutton" type="button" onclick="calculadora.eraseLastInput()">Del</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" onclick="calculadora.writeMathFunction('PI')">π</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('7')">7</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('8')">8</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('9')">9</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('*')">x</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" onclick="calculadora.calculateFactorial()">n!</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('4')">4</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('5')">5</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('6')">6</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.toggleSign()">(-)</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('1')">1</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('2')">2</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('3')">3</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('(')">(</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay(')')">)</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('0')">0</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeToDisplay('.')">.</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.solveOperation()">=</button></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Calculadora de Derivadas -->
+        <div class="container">
+            <h2>Calculadora de Derivadas</h2>
+            <input type="text" id="inputFunction" placeholder="Ingrese una función (e. 3x^2+2x+1)">
+            <button class="btn" onclick="calculateDerivative()">
+                <span>
+                    Calcular Derivada
+                  </span>
+            </button>
+            <div class="result" id="result"></div>
+        </div>
+    </main>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
